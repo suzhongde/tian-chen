@@ -1,5 +1,6 @@
 package com.suzhongde.tianchen.mapper;
 
+import com.suzhongde.tianchen.dto.UserCreateDto;
 import com.suzhongde.tianchen.dto.UserDto;
 import com.suzhongde.tianchen.entity.User;
 import com.suzhongde.tianchen.vo.UserVo;
@@ -12,4 +13,6 @@ public interface UserMapper {
     UserDto toDto(User user);
 
     UserVo toVo(UserDto userDto);
+
+    User createEntity(UserCreateDto userCreateDto);
 }
