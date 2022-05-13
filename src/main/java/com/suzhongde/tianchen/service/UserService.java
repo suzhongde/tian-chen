@@ -1,5 +1,6 @@
 package com.suzhongde.tianchen.service;
 
+import com.suzhongde.tianchen.dto.TokenCreateRequest;
 import com.suzhongde.tianchen.dto.UserCreateRequest;
 import com.suzhongde.tianchen.dto.UserDto;
 import com.suzhongde.tianchen.dto.UserUpdateRequest;
@@ -24,4 +25,8 @@ public interface UserService extends UserDetailsService {
     void delete(String id);
 
     Page<UserDto> search(Pageable pageable);
+
+    String createToken(TokenCreateRequest tokenCreateRequest);
+
+    UserDto getCurrentUser();
 }
