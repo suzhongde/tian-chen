@@ -21,14 +21,11 @@ public class WeixinController {
 
     @GetMapping("/auth_url")
     public String getAuthUrl(@PathParam("redirectUrl") String redirectUrl) {
-        return wxMpService.getOAuth2Service().buildAuthorizationUrl(redirectUrl, WxConsts.OAuth2Scope.SNSAPI_USERINFO, null);
-    }
-
-
-    @PostMapping("/get_user_info")
-    public WxOAuth2UserInfo getUserInfo(@PathParam("code") String code) throws WxErrorException {
-        WxOAuth2AccessToken wxOAuth2AccessToken = wxMpService.getOAuth2Service().getAccessToken(code);
-        return wxMpService.getOAuth2Service().getUserInfo(wxOAuth2AccessToken, null);
+        return wxMpService.getOAuth2Service().buildAuthorizationUrl(
+                redirectUrl,
+                WxConsts.OAuth2Scope.SNSAPI_USERINFO,
+                null
+        );
     }
 
     @Autowired
