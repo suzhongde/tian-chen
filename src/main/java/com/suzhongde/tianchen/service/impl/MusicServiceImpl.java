@@ -34,10 +34,6 @@ public class MusicServiceImpl extends GeneralServiceImpl<Music, MusicDto> implem
 
     private MusicMapper mapper;
 
-    @Override
-    public MusicDto create(MusicDto musicDto) {
-        return super.create(musicDto);
-    }
 
     @Override
     public Page<MusicDto> search(MusicSearchFilter musicSearchRequest) {
