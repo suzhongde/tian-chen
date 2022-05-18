@@ -1,6 +1,6 @@
 package com.suzhongde.tianchen.enums;
 
-public enum ArtistStatus {
+public enum GeneralStatus {
     DRAFT,
     PUBLISHED,
     BLOCKED

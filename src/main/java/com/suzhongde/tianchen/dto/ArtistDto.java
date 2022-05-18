@@ -1,6 +1,6 @@
 package com.suzhongde.tianchen.dto;
 
-import com.suzhongde.tianchen.enums.ArtistStatus;
+import com.suzhongde.tianchen.enums.GeneralStatus;
 import lombok.Data;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class ArtistDto extends TraceableBaseDto {
 
     private List<MusicDto> musicDtoList;
 
-    private ArtistStatus status;
+    private GeneralStatus status;
 
     private Boolean recommended;
 

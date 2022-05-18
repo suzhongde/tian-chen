@@ -1,6 +1,6 @@
 package com.suzhongde.tianchen.entity;
 
-import com.suzhongde.tianchen.enums.ArtistStatus;
+import com.suzhongde.tianchen.enums.GeneralStatus;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,7 +21,7 @@ public class Artist extends TraceableBaseEntity {
     @JoinTable(name = "artist_music", joinColumns = @JoinColumn(name = "artist_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "music_id", referencedColumnName = "id"))
     private List<Music> musicList;
 
-    private ArtistStatus status = ArtistStatus.DRAFT;
+    private GeneralStatus status = GeneralStatus.DRAFT;
 
     private Boolean recommended = false;
 
