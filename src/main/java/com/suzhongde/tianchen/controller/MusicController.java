@@ -6,6 +6,7 @@ import com.suzhongde.tianchen.mapper.MusicMapper;
 import com.suzhongde.tianchen.service.MusicService;
 import com.suzhongde.tianchen.vo.MusicVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -34,11 +35,11 @@ public class MusicController {
     }
 
 
-    @GetMapping
+    // Todo: post请求; 参数问题
+    @PostMapping("/search")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public List<MusicVo> list() {
-//        return musicService.list().stream().map(musicMapper::toVo).collect(Collectors.toList());
-        return null;
+    public Page<MusicVo> search(@RequestBody(required = false) MusicSearchFilter searchFilter) {
+        return musicService.search(searchFilter).map(musicMapper::toVo);
     }
 
     @PostMapping("/{id}/publish")

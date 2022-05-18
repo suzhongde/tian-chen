@@ -22,6 +22,4 @@ public interface GeneralService<Entity extends BaseEntity, Dto extends BaseDto> 
     Dto update(String id, Dto dto);
 
     void delete(String id);
-
-    Page<Dto> search(Dto searchDto, Pageable pageable);
 }

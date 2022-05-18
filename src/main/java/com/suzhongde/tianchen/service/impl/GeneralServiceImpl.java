@@ -45,9 +45,4 @@ public abstract class GeneralServiceImpl<Entity extends BaseEntity, Dto extends 
         Entity existedEntity = getEntity(id);
         getRepository().delete(existedEntity);
     }
-
-    @Override
-    public Page<Dto> search(Dto searchDto, Pageable pageable) {
-        return null;
-    }
 }
