@@ -14,10 +14,11 @@ public class TokenController {
     UserService userService;
 
     @PostMapping
-    public String create(@RequestBody PaymentDto paymentDto) {
-        return paymentDto.toString();
+    public String create(@RequestBody TokenCreateRequest tokenCreateRequest) {
+        return userService.createToken(tokenCreateRequest);
     }
 
+    
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
