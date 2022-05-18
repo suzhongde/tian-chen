@@ -1,6 +1,7 @@
 package com.suzhongde.tianchen.controller;
 
 import com.suzhongde.tianchen.dto.MusicCreateRequest;
+import com.suzhongde.tianchen.dto.MusicSearchFilter;
 import com.suzhongde.tianchen.dto.MusicUpdateRequest;
 import com.suzhongde.tianchen.mapper.MusicMapper;
 import com.suzhongde.tianchen.service.MusicService;

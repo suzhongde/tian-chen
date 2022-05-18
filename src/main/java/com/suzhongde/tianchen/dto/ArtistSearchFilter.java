@@ -3,6 +3,6 @@ package com.suzhongde.tianchen.dto;
 import lombok.Data;
 
 @Data
-public class MusicSearchFilter extends BaseSearchFilter {
+public class ArtistSearchFilter extends BaseSearchFilter {
     private String name = "";
 }

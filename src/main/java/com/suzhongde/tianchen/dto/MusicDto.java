@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @ToString(callSuper = true)
@@ -16,4 +17,6 @@ public class MusicDto extends BaseDto {
     private String description;
 
     private FileDto file;
+
+    private List<ArtistDto> artistList;
 }
