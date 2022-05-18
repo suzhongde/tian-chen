@@ -27,7 +27,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends BaseService implements UserService {
 
     UserRepository repository;
 
@@ -45,33 +45,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto get(String id) {
-        // Todo: 重构
-        Optional<User> user = repository.findById(id);
-        if (!user.isPresent()) {
-            throw new BizException(ExceptionType.USER_NOT_FOUND);
-        }
-        return mapper.toDto(user.get());
+        return mapper.toDto(getById(id));
     }
 
     @Override
     public UserDto update(String id, UserUpdateRequest userUpdateRequest) {
-        // Todo: 重构
+        return mapper.toDto(repository.save(mapper.updateEntity(getById(id), userUpdateRequest)));
+    }
+
+    private User getById(String id) {
         Optional<User> user = repository.findById(id);
         if (!user.isPresent()) {
             throw new BizException(ExceptionType.USER_NOT_FOUND);
         }
-        return mapper.toDto(repository.save(mapper.updateEntity(user.get(), userUpdateRequest)));
+        return user.get();
     }
 
     @Override
     public void delete(String id) {
-
-        // Todo: 重构
-        Optional<User> user = repository.findById(id);
-        if (!user.isPresent()) {
-            throw new BizException(ExceptionType.USER_NOT_FOUND);
-        }
-        repository.delete(user.get());
+        repository.delete(getById(id));
     }
 
     @Override
@@ -81,11 +73,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User loadUserByUsername(String username) {
-        Optional<User> user = repository.findByUsername(username);
-        if (!user.isPresent()) {
-            throw new BizException(ExceptionType.USER_NOT_FOUND);
-        }
-        return user.get();
+        return super.loadUserByUsername(username);
     }
 
     @Override
@@ -110,10 +98,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getCurrentUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User currentUser = loadUserByUsername(authentication.getName());
-        return mapper.toDto(currentUser);
+        return mapper.toDto(super.getCurrentUserEntity());
     }
+
 
     private void checkUserName(String username) {
         Optional<User> user = repository.findByUsername(username);
