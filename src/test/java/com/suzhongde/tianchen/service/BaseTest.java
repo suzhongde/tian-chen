@@ -29,7 +29,6 @@ public abstract class BaseTest {
         UserDto userDto = userService.create(userCreateRequest);
 
         User user = userService.loadUserByUsername(userDto.getUsername());
-        user.setOpenId("yili-openid");
         userRepository.save(user);
     }
 }

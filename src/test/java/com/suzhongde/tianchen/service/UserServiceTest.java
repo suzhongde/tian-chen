@@ -16,11 +16,4 @@ class UserServiceTest extends BaseTest {
     @Test
     void getCurrentUser() {
     }
-
-    @Test
-    void createTokenByMp() {
-        String token = userService.createTokenByOpenId("yili-openid");
-        Assertions.assertNotNull(token);
-        log.info(token);
-    }
 }
