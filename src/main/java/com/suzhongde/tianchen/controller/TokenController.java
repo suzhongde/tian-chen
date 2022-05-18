@@ -1,5 +1,6 @@
 package com.suzhongde.tianchen.controller;
 
+import com.suzhongde.tianchen.dto.PaymentDto;
 import com.suzhongde.tianchen.dto.TokenCreateRequest;
 import com.suzhongde.tianchen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ public class TokenController {
     UserService userService;
 
     @PostMapping
-    public String create(@RequestBody TokenCreateRequest tokenCreateRequest) {
-        return userService.createToken(tokenCreateRequest);
+    public String create(@RequestBody PaymentDto paymentDto) {
+        return paymentDto.toString();
     }
 
     @Autowired
