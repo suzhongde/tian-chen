@@ -12,10 +12,8 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring", uses = {FileMapper.class, MusicMapper.class})
 public interface ArtistMapper {
 
-    @Mapping(source = "photoId", target = "photo.id")
     Artist createEntity(ArtistCreateRequest artistCreateRequest);
 
-    @Mapping(source = "photoId", target = "photo.id")
     Artist updateEntity(@MappingTarget Artist artist, ArtistUpdateRequest artistUpdateRequest);
 
     ArtistDto toDto(Artist artist);
