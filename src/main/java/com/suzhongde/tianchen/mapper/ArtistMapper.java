@@ -5,11 +5,10 @@ import com.suzhongde.tianchen.dto.ArtistDto;
 import com.suzhongde.tianchen.dto.ArtistUpdateRequest;
 import com.suzhongde.tianchen.entity.Artist;
 import com.suzhongde.tianchen.vo.ArtistVo;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
+import org.mapstruct.*;
 
-@Mapper(componentModel = "spring", uses = {FileMapper.class, MusicMapper.class})
+@Mapper(componentModel = "spring", uses = {FileMapper.class, MusicMapper.class}, nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface ArtistMapper extends MapperInterface<Artist, ArtistDto> {
 
     @Mapping(source = "photoId", target = "photo.id")
