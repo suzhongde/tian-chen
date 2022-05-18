@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class UserVo {
+public class UserVo extends BaseVo {
 
     private String id;
 

@@ -3,6 +3,7 @@ package com.suzhongde.tianchen.handler;
 import com.suzhongde.tianchen.exception.BizException;
 import com.suzhongde.tianchen.exception.ErrorResponse;
 import com.suzhongde.tianchen.exception.ExceptionType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = BizException.class)
